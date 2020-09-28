@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Demo20.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <!-- Place new controls here -->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="label"/>
+                <Label Text="labe2"/>
+                <Label Text="labe3"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Label Text="labe4"/>
+                <Label Text="labe5"/>
+                <Label Text="labe6"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="label" HorizontalOptions="StartAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+                <Label Text="labe2" HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+                <Label Text="labe3" HorizontalOptions="EndAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                <Label Text="label" HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+                <Label Text="labe2" HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+                <Label Text="labe3" HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <BoxView Color="Black" Grid.Column="0" Grid.Row="0"/>
+                <BoxView Color="Red" Grid.Column="0" Grid.Row="1"/>
+                <BoxView Color="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <BoxView Color="Blue" Grid.Column="2" Grid.Row="1"/>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <BoxView Color="Black" Grid.Column="0" Grid.Row="0"/>
+                <BoxView Color="Red" Grid.Column="0" Grid.Row="1"/>
+                <BoxView Color="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <BoxView Color="Blue" Grid.Column="0" Grid.Row="2"/>
+            </Grid>
+            <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+            <StackLayout>
+                <Label Text="685448"/>
+                <Button BackgroundColor="Aquamarine"/>
+                <TimePicker Time="12:12:21"/>
+                <DatePicker Date="2020/10/10"/>
+            </StackLayout>
+        </StackLayout>
+
+    </ScrollView>
+  
+</ContentPage>
