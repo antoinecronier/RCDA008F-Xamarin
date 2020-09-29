@@ -22,16 +22,24 @@
         <ContentView BackgroundColor="#58B0F0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid Margin="10, 25">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ImageButton Source="{utils:ImageFromResources Tp2.Images.pencil.png}" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand"></ImageButton>
-                <Label Grid.Row="0" Grid.Column="1" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <ImageButton Source="{utils:ImageFromResources Tp2.Images.search.png}" Grid.Row="0" Grid.Column="2" HorizontalOptions="EndAndExpand"></ImageButton>
+                <ImageButton 
+                    BorderColor="Transparent"
+                    BackgroundColor="Transparent"
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source="{utils:ImageFromResources Tp2.Images.pencil.png}" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand"></ImageButton>
+                <Label Grid.Row="0" Grid.Column="1" FontSize="20" FontAttributes="Bold" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+                <ImageButton 
+                    WidthRequest="150"
+                    HeightRequest="150"
+                    Aspect="AspectFit" Source="{utils:ImageFromResources Tp2.Images.search.png}" Grid.Row="0" Grid.Column="2" HorizontalOptions="EndAndExpand"></ImageButton>
             </Grid>
         </ContentView>
         <ContentView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
