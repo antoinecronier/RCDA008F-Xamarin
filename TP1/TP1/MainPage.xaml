@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TP1"
              mc:Ignorable="d"
              x:Class="TP1.MainPage">
 
@@ -38,6 +39,8 @@
                 <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
                 <StackLayout>
                     <!--<ContentView  HorizontalOptions="FillAndExpand">-->
+                    <local:View1/>
+                    <BoxView Color="Gray" Opacity="0.15" HeightRequest="2" HorizontalOptions="Fill"/>
                     <ContentView>
                         <StackLayout>
                             <ContentView>
