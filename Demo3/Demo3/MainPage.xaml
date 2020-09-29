@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Demo3.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Do smt"/>
+            <Entry x:Name="doSmt" Placeholder="Do it here"/>
+            <Label Text="Do smt 2"/>
+            <Entry x:Name="doSmt2" Text="the text"/>
+            <Label Text="Do smt 3"/>
+            <Switch x:Name="doSmt3"/>
+            <Label Text="Do smt 4"/>
+            <Slider x:Name="doSmt4" Minimum="0" Maximum="50" Value="20"/>
+            <Label x:Name="doSmt4Display"/>
+            <Label Text="Do smt 5"/>
+            <Stepper x:Name="doSmt5" Minimum="10" Maximum="50" Value="20" Increment="5"/>
+            <Label x:Name="doSmt5Display"/>
+            <Label Text="Do smt 6"/>
+            <DatePicker x:Name="doSmt6" Date="2020/09/29" MinimumDate="2020/09/01" MaximumDate="2020/09/30"/>
+            <Label Text="Do smt 7"/>
+            <TimePicker x:Name="doSmt7" Time="23:01:59"/>
+            <Label Text="Do smt 8"/>
+            <Image Source="https://images-na.ssl-images-amazon.com/images/I/51S%2BcCifK5L._AC_.jpg" Aspect="AspectFill"/>
+            <Label Text="Do smt 8"/>
+            <Image Source="https://images-na.ssl-images-amazon.com/images/I/51S%2BcCifK5L._AC_.jpg" Aspect="AspectFit"/>
+            <Label Text="Do smt 8"/>
+            <Image Source="https://images-na.ssl-images-amazon.com/images/I/51S%2BcCifK5L._AC_.jpg" Aspect="Fill"/>
+            <Button x:Name="btn" Text="Click"/>
+            <Label  x:Name="resultPrint"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
