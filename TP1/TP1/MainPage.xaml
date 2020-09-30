@@ -34,19 +34,20 @@
                 <ImageButton BackgroundColor="Transparent" BorderColor="Transparent" Source="{utils:ImageFromResources TP1.Images.search.png}" Grid.Row="0" Grid.Column="2"></ImageButton>
             </Grid>
         </ContentView>
-        <ContentView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+        <ContentView x:Name="ConnectionForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout>
                 <Label Text="Connexion à Twitter" HorizontalOptions="CenterAndExpand"/>
-                <Entry Placeholder="Identifiant Twitter"/>
-                <Entry Placeholder="Mot de passe" IsPassword="True"/>
+                <Entry x:Name="TwitterLogin" Placeholder="Identifiant Twitter"/>
+                <Entry x:Name="TwitterPassword" Placeholder="Mot de passe" IsPassword="True"/>
                 <StackLayout Orientation="Horizontal">
-                    <Switch/>
+                    <Switch x:Name="TwitterSaveId"/>
                     <Label Text="Mémoriser mes informations" VerticalOptions="CenterAndExpand"/>
                 </StackLayout>
-                <Button Text="SE CONNECTER"/>
+                <Label x:Name="ErrorsLabel" BackgroundColor="Red" IsVisible="False"/>
+                <Button x:Name="TwitterConnect" Text="SE CONNECTER"/>
             </StackLayout>
         </ContentView>
-        <ContentView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+        <ContentView x:Name="ListTweets" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="False">
             <!--<ScrollView HorizontalOptions="FillAndExpand">-->
             <ScrollView>
                 <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
