@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Demo4.MainPage">
+
+    <RelativeLayout>
+        <!-- Place new controls here -->
+        <Button x:Name="AwesomeBtn" Text="Click me"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Y,Factor=1,Constant=0}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=X,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Width,Factor=.1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression
+                Type=RelativeToParent,Property=Height,Factor=.1,Constant=0}">
+        </Button>
+    </RelativeLayout>
+
+</ContentPage>
