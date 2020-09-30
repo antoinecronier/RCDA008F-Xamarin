@@ -18,7 +18,7 @@ namespace Demo5
         public MainPage()
         {
             InitializeComponent();
-            this.MyBtn.Clicked += MyBtn_ClickedOld;
+            this.MyBtn.Clicked += MyBtn_ClickedNew;
         }
 
         private async void MyBtn_ClickedNew(object sender, EventArgs e)
@@ -26,11 +26,11 @@ namespace Demo5
             var locales = await TextToSpeech.GetLocalesAsync();
 
             // Grab the first locale
-            var locale = locales.ElementAt(2);
+            var locale = locales.FirstOrDefault();
 
             var settings = new SpeechOptions()
             {
-                Volume = .25f,
+                Volume = .85f,
                 Pitch = 1.0f,
                 Locale = locale
             };
@@ -38,7 +38,7 @@ namespace Demo5
             Xamarin.Essentials.TextToSpeech.SpeakAsync(this.TxtToRead.Text, settings);
         }
 
-        private async void MyBtn_ClickedOld(object sender, EventArgs e)
+        private void MyBtn_ClickedOld(object sender, EventArgs e)
         {
             DependencyService.Get<ITextToSpeech>().Speak(this.TxtToRead.Text);
         }
