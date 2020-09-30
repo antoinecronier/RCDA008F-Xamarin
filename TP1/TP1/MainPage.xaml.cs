@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TP1.Services;
+using TP1.Views;
 using Xamarin.Forms;
 
 namespace TP1
@@ -25,6 +26,15 @@ namespace TP1
             this.twitterService = new TwitterService();
             InitializeComponent();
             this.TwitterConnect.Clicked += TwitterConnect_Clicked;
+            this.LoadTweets(this.StacklayoutTweets);
+        }
+
+        private void LoadTweets(StackLayout stacklayoutTweets)
+        {
+            foreach (var item in twitterService.GetTweets())
+            {
+                stacklayoutTweets.Children.Add(new TweetView().LoadData(item));
+            }
         }
 
         private void TwitterConnect_Clicked(object sender, EventArgs e)
@@ -32,6 +42,7 @@ namespace TP1
             Debug.WriteLine("Clicked");
             var testLogin = true;
             var testPassword = true;
+            var testAuth = true;
             StringBuilder builder = new StringBuilder();
 
             if (this.TwitterLogin.Text == null || this.TwitterLogin.Text.Length < 3)
@@ -60,15 +71,16 @@ namespace TP1
                 }
                 else
                 {
-                    if (!testLogin)
+                    if (!testLogin || !testPassword)
                     {
                         builder.Append("\n");
                     }
                     builder.Append(AUTH_FAILED);
+                    testAuth = false;
                 }
             }
 
-            if (!testLogin || !testPassword)
+            if (!testLogin || !testPassword || !testAuth)
             {
                 this.ErrorsLabel.Text = builder.ToString();
                 this.ErrorsLabel.IsVisible = true;
