@@ -39,7 +39,7 @@ namespace Tp4.Views
             else if (temp.TotalMinutes <= 999)
             {
                 result.Append(Convert.ToInt32(temp.TotalHours));
-                result.Append("h");
+                result.Append("m");
             }
             else if (temp.TotalDays <= 999)
             {
