@@ -14,12 +14,12 @@ namespace Demo7
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class ListViewPage : ContentPage
     {
         private ObservableCollection<User> users;
         private User currentUser;
 
-        public MainPage()
+        public ListViewPage()
         {
             InitializeComponent();
 
@@ -67,7 +67,6 @@ namespace Demo7
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
         }
     }
 }
