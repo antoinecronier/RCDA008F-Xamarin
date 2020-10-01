@@ -19,6 +19,8 @@ namespace TP1
         private const string LOGIN_ERROR = "Login invalide, doit contenir au moins 3 caractères";
         private const string PASSWORD_ERROR = "Password invalide, doit contenir au moins 6 caractères";
         private const string AUTH_FAILED = "Authentication failed";
+        private const string INTERNET_FAILED = "No internet connection";
+
         private ITwitterService twitterService;
 
         public MainPage()
@@ -43,6 +45,8 @@ namespace TP1
             var testLogin = true;
             var testPassword = true;
             var testAuth = true;
+            var testInternet = true;
+
             StringBuilder builder = new StringBuilder();
 
             if (this.TwitterLogin.Text == null || this.TwitterLogin.Text.Length < 3)
@@ -63,24 +67,36 @@ namespace TP1
 
             if (testLogin && testPassword)
             {
-                if (this.twitterService.Authenticate(this.TwitterLogin.Text, this.TwitterPassword.Text))
+                if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
                 {
-                    this.ListTweets.IsVisible = !this.ListTweets.IsVisible;
-                    this.ConnectionForm.IsVisible = false;
-                    this.ErrorsLabel.IsVisible = false;
+                    if (this.twitterService.Authenticate(this.TwitterLogin.Text, this.TwitterPassword.Text))
+                    {
+                        this.ListTweets.IsVisible = !this.ListTweets.IsVisible;
+                        this.ConnectionForm.IsVisible = false;
+                        this.ErrorsLabel.IsVisible = false;
+                    }
+                    else
+                    {
+                        if (!testLogin || !testPassword)
+                        {
+                            builder.Append("\n");
+                        }
+                        builder.Append(AUTH_FAILED);
+                        testAuth = false;
+                    }
                 }
                 else
                 {
-                    if (!testLogin || !testPassword)
+                    if (!testLogin || !testPassword || !testAuth)
                     {
                         builder.Append("\n");
                     }
-                    builder.Append(AUTH_FAILED);
-                    testAuth = false;
+                    builder.Append(INTERNET_FAILED);
+                    testInternet = false;
                 }
             }
 
-            if (!testLogin || !testPassword || !testAuth)
+            if (!testLogin || !testPassword || !testAuth || ! testInternet)
             {
                 this.ErrorsLabel.Text = builder.ToString();
                 this.ErrorsLabel.IsVisible = true;
