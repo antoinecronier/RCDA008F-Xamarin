@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{04CF8F3B-4815-4C7E-87BE-85593A5E7365}</ProjectGuid>
+    <ProjectGuid>{927B4BB9-7EF1-47D4-9071-6EEC7E85141D}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
@@ -88,7 +88,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tp3\Tp3.csproj">
+    <ProjectReference Include="..\..\Tp3\Tp3\Tp3.csproj">
       <Project>{a707a53e-4aec-460b-a62e-c7e38721699d}</Project>
       <Name>Tp3</Name>
     </ProjectReference>
