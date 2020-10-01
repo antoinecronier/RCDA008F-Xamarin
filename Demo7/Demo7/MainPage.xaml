@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Demo7.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <ListView x:Name="UserList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Context Menu Option" />
+                        </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Button Text="Btn" Clicked="Button_Clicked"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Firstname}" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Lastname}" HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding DoB}" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Age}" HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                            <Label Text="{Binding Id}"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Role.Id}" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Role.Name}" HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
