@@ -28,15 +28,6 @@ namespace TP1
             this.twitterService = new TwitterService();
             InitializeComponent();
             this.TwitterConnect.Clicked += TwitterConnect_Clicked;
-            this.LoadTweets(this.StacklayoutTweets);
-        }
-
-        private void LoadTweets(StackLayout stacklayoutTweets)
-        {
-            foreach (var item in twitterService.GetTweets())
-            {
-                stacklayoutTweets.Children.Add(new TweetView().LoadData(item));
-            }
         }
 
         private void TwitterConnect_Clicked(object sender, EventArgs e)
@@ -71,9 +62,8 @@ namespace TP1
                 {
                     if (this.twitterService.Authenticate(this.TwitterLogin.Text, this.TwitterPassword.Text))
                     {
-                        this.ListTweets.IsVisible = !this.ListTweets.IsVisible;
-                        this.ConnectionForm.IsVisible = false;
                         this.ErrorsLabel.IsVisible = false;
+                        Navigation.PushAsync(new TweetsPage());
                     }
                     else
                     {

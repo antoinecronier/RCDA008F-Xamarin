@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:utils="clr-namespace:TP1.Utils"
+             xmlns:views="clr-namespace:TP1.Views"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
              x:Class="TP1.MainPage">
 
     <Grid>
@@ -19,21 +21,9 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <ContentView BackgroundColor="#58B0F0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-            <Grid Margin="10, 25">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <ImageButton BackgroundColor="Transparent" BorderColor="Transparent" Source="pencil.png" Grid.Row="0" Grid.Column="0"></ImageButton>
-                <Label Grid.Row="0" Grid.Column="1" FontSize="20" FontAttributes="Bold" TextColor="White" Text="Accueil" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <ImageButton BackgroundColor="Transparent" BorderColor="Transparent" Source="{utils:ImageFromResources TP1.Images.search.png}" Grid.Row="0" Grid.Column="2"></ImageButton>
-            </Grid>
-        </ContentView>
+        <views:Header BackgroundColor="#58B0F0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+           
+        </views:Header>
         <ContentView x:Name="ConnectionForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout>
                 <Label Text="Connexion à Twitter" HorizontalOptions="CenterAndExpand"/>
@@ -47,22 +37,9 @@
                 <Button x:Name="TwitterConnect" Text="SE CONNECTER"/>
             </StackLayout>
         </ContentView>
-        <ContentView x:Name="ListTweets" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="False">
-            <!--<ScrollView HorizontalOptions="FillAndExpand">-->
-            <ScrollView>
-                <!--<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
-                <StackLayout x:Name="StacklayoutTweets">
-                </StackLayout>
-            </ScrollView>
-        </ContentView>
-        <ContentView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
-            <StackLayout Orientation="Horizontal">
-                <Label TextColor="Gray" Text="Fil" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Notification" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Messages" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Moi" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-            </StackLayout>
-        </ContentView>
+        <views:Footer Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            
+        </views:Footer>
     </Grid>
 
 </ContentPage>
