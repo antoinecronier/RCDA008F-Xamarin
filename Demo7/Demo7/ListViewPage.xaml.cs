@@ -1,4 +1,6 @@
-﻿using Demo7.Entities;
+﻿using Demo7.Data;
+using Demo7.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +18,7 @@ namespace Demo7
     [DesignTimeVisible(false)]
     public partial class ListViewPage : ContentPage
     {
-        private ObservableCollection<User> users;
+        private ObservableCollection<User> users = new ObservableCollection<User>();
         private User currentUser;
 
         public ListViewPage()
@@ -26,20 +28,28 @@ namespace Demo7
             this.UserList.ItemTapped += UserList_ItemTapped;
             this.UserList.ChildRemoved += UserList_ChildRemoved;
 
-
-            Role role1 = new Role { Id = 1, Name = "role 1" };
-            Role role2 = new Role { Id = 2, Name = "role 2" };
-            users = new ObservableCollection<User>();
-            for (int i = 0; i < 20; i++)
+            using (var db = new Demo7DbContext())
             {
-                users.Add(new User { Id = i, Firstname = "F" + i, Lastname = "L" + i, DoB = DateTime.Now, Role = i % 2 == 0 ? role1 : role2 });
+                foreach (var item in db.Users.Include(X => X.Role).ToList())
+                {
+                    users.Add(item);
+                }
             }
+
+            this.UserList.ItemsSource = users;
+
+            //Role role1 = new Role { Id = 1, Name = "role 1" };
+            //Role role2 = new Role { Id = 2, Name = "role 2" };
+            //users = new ObservableCollection<User>();
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    users.Add(new User { Id = i, Firstname = "F" + i, Lastname = "L" + i, DoB = DateTime.Now, Role = i % 2 == 0 ? role1 : role2 });
+            //}
             //ObservableCollection<Role> roles = new ObservableCollection<Role>();
             //for (int i = 0; i < 20; i++)
             //{
             //    roles.Add(new Role { Id = i, Name = "N" + i });
             //}
-            this.UserList.ItemsSource = users;
 
             //Task.Factory.StartNew(() =>
             //{

@@ -11,7 +11,7 @@ namespace Demo7
         {
             InitializeComponent();
 
-            var firstPage = new NavigationPage(new Page1());
+            var firstPage = new NavigationPage(new ListViewPage());
             NavigationService.Instance.Initialize(firstPage);
 
             MainPage = firstPage;
