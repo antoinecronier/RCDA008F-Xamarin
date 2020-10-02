@@ -4,11 +4,38 @@ using System.Text;
 
 namespace Demo7.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        public int Id { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { 
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        private string firstname;
+
+        public string Firstname
+        {
+            get { return firstname; }
+            set { 
+                firstname = value;
+                OnPropertyChanged("Firstname");
+            }
+        }
+
+        private string lastname;
+
+        public string Lastname
+        {
+            get { return lastname; }
+            set { lastname = value; }
+        }
+
         public DateTime DoB { get; set; }
         public Role Role { get; set; }
         public int Age
