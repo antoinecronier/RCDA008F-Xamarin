@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo7.Configurations;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,10 @@ namespace Demo7
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Page1());
+            var firstPage = new NavigationPage(new Page1());
+            NavigationService.Instance.Initialize(firstPage);
+
+            MainPage = firstPage;
         }
 
         protected override void OnStart()

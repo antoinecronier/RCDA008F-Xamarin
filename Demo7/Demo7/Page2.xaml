@@ -4,15 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Demo7.Page2">
+             x:Class="Demo7.Page2"
+             BindingContext="{Binding UserViewModel, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="btn1" Text="Go to page 1"
+
+            <StackLayout>
+                <Button x:Name="btn1" Text="Go to page 1" Command="{Binding Click1}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="btn2" Text="Go to page 3"
+                <Button x:Name="btn2" Text="Go to page 3" Command="{Binding Click2}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label x:Name="Lbl1" Text="{Binding User.Id}" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Binding User.Firstname}" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="{Binding User.Lastname}" HorizontalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding User.Id}" HorizontalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding User.Firstname}" HorizontalOptions="CenterAndExpand"/>
+                <Entry Text="{Binding User.Lastname}" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

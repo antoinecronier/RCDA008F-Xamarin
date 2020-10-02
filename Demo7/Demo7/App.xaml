@@ -6,6 +6,8 @@
              mc:Ignorable="d"
              x:Class="Demo7.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <vm:ViewModelLocator xmlns:vm="using:Demo7.Configurations" x:Key="Locator" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

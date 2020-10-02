@@ -4,14 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Demo7.Page1">
+             x:Class="Demo7.Page1"
+             BindingContext="{Binding UserViewModel, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="CenterAndExpand">
-                <Button x:Name="btn1" Text="Go to page 2"
+                <Button x:Name="btn1" Text="Go to page 2"  Command="{Binding Click1}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-                <Button x:Name="btn2" Text="Go to page 3"
+                <Button x:Name="btn2" Text="Go to page 3" Command="{Binding Click2}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" RotationX="{Binding RotationX}"
                 RotationY="{Binding RotationY}" Rotation="{Binding Rotation}"/>

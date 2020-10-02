@@ -1,4 +1,6 @@
 ﻿using Demo7.Entities;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +20,7 @@ namespace Demo7.ViewModels
 			}
 		}
 
+		private INavigationService navigation;
 		private double rotationX;
 
 		public double RotationX
@@ -50,6 +53,47 @@ namespace Demo7.ViewModels
 				rotation = value;
 				OnPropertyChanged("Rotation");
 			}
+		}
+
+		public RelayCommand Click1
+		{
+			get
+			{
+				return new RelayCommand(() =>
+				{
+					if (this.navigation.CurrentPageKey == Configurations.ViewModelLocator.Pages.Page2.ToString())
+					{
+						this.navigation.NavigateTo(Configurations.ViewModelLocator.Pages.Page1.ToString());
+					}
+					else if (this.navigation.CurrentPageKey == Configurations.ViewModelLocator.Pages.Page1.ToString())
+					{
+						this.navigation.NavigateTo(Configurations.ViewModelLocator.Pages.Page2.ToString());
+					}
+				});
+			}
+		}
+		public RelayCommand Click2
+		{
+			get
+			{
+				return new RelayCommand(() =>
+				{
+					if (this.navigation.CurrentPageKey == Configurations.ViewModelLocator.Pages.Page2.ToString())
+					{
+						this.navigation.NavigateTo(Configurations.ViewModelLocator.Pages.Page3.ToString());
+					}
+					else if (this.navigation.CurrentPageKey == Configurations.ViewModelLocator.Pages.Page1.ToString())
+					{
+						this.navigation.NavigateTo(Configurations.ViewModelLocator.Pages.Page3.ToString());
+					}
+				});
+			}
+		}
+
+		public UserVM(INavigationService navigation)
+		{
+			this.User = new User() { Id = 100, Firstname = "F10", Lastname = "L10" };
+			this.navigation = navigation;
 		}
 	}
 }

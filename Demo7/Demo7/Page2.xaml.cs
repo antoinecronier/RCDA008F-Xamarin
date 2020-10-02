@@ -15,18 +15,6 @@ namespace Demo7
         public Page2()
         {
             InitializeComponent();
-            this.btn1.Clicked += Btn1_Clicked;
-            this.btn2.Clicked += Btn2_Clicked;
-        }
-
-        private void Btn2_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Page3());
-        }
-
-        private void Btn1_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Page1());
         }
     }
 }
